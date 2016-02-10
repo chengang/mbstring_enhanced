@@ -74,6 +74,11 @@ int bytefilter_utf8_indentify(unsigned char *str, int *status, int *flag_cjk_in_
       if ((c1 == 0x0 && c >= 0x90) || (c1 > 0x0 && c1 < 0x4) ||
           (c1 == 0x4 && c < 0x90)) {
         (*status)++;
+        if (!need_strip) {
+            return 1; /* bad */
+        } else {
+            (*str) = 0x20;
+        }
       } else {
         if (!need_strip) {
           return 1; /* bad */
@@ -85,6 +90,11 @@ int bytefilter_utf8_indentify(unsigned char *str, int *status, int *flag_cjk_in_
       break;
     case 0x31: /* 4 byte code 3rd char */
       (*status)++;
+      if (!need_strip) {
+        return 1; /* bad */
+      } else {
+        (*str) = 0x20;
+      }
       break;
     case 0x10: /* 2 byte code 2nd char */
       if (!need_strip) {
@@ -137,6 +147,11 @@ int bytefilter_utf8_indentify(unsigned char *str, int *status, int *flag_cjk_in_
     (*status) = 0;
     if (c < 0xe0) { /* 2 byte code first char */
       (*status) = 0x10;
+      if (!need_strip) {
+        return 1; /* bad */
+      } else {
+        (*str) = 0x20;
+      }
     } else if (c < 0xf0) { /* 3 byte code 1st char */
       (*status) = 0x20;
       (*status) |= (c & 0xf) << 8;
@@ -151,6 +166,11 @@ int bytefilter_utf8_indentify(unsigned char *str, int *status, int *flag_cjk_in_
     } else if (c < 0xf5) { /* 4 byte code 1st char */
       (*status) = 0x30;
       (*status) |= (c & 0x7) << 8;
+      if (!need_strip) {
+        return 1; /* bad */
+      } else {
+        (*str) = 0x20;
+      }
     } else {
       if (!need_strip) {
         return 1; /* bad */

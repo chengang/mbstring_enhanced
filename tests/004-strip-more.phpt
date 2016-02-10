@@ -4,8 +4,8 @@ Check for mbe_mbstring presence
 <?php if (!extension_loaded("mbstring_enhanced")) print "skip"; ?>
 --FILE--
 <?php 
-$striped_str = mbe_strip_utf8_left_cjk("abcdefg€€€€€higklmn€€€\n€€€zzdffh");
-if ($striped_str == "abcdefg               higklmn         \n         zzdffh") {
+$striped_str = mbe_strip_utf8_left_cjk("abcdefg€€€€€higklmn€€€\n€€€zz头dffh");
+if ($striped_str == "abcdefg               higklmn         \n         zz   dffh") {
         echo "RIGHT\n";
 } else {
         echo "WRONG\n";
