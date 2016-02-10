@@ -5,7 +5,7 @@ Check for mbe_mbstring presence
 --FILE--
 <?php 
 $striped_str = mbe_strip_utf8_left_cjk("abcdefg€€€€€higklmn€€€\n€€€zz头dffh");
-if ($striped_str == "abcdefg               higklmn         \n         zz   dffh") {
+if ($striped_str == "abcdefg               higklmn         \n         zz头dffh") {
         echo "RIGHT\n";
 } else {
         echo "WRONG\n";
