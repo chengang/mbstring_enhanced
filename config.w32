@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("mbstring_enhanced", "for mbstring_enhanced support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("mbstring_enhanced", "enable mbstring_enhanced support", "no");
+
+if (PHP_MBSTRING_ENHANCED != "no") {
+	EXTENSION("mbstring_enhanced", "mbstring_enhanced.c");
+}
+
