@@ -243,5 +243,5 @@ PHP_FUNCTION(mbe_strip_utf8_left_cjk) {
 
   int is_utf8cjk = identify_encoding(arg, arg_len, 1);
   // len = spprintf(&strg, 0, "UNKNOWN");
-  RETURN_STRINGL(arg, arg_len, 0);
+  RETURN_STRINGL((char *)arg, arg_len, 0);
 }
