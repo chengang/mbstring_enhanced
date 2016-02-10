@@ -29,7 +29,7 @@
 #include "ext/standard/info.h"
 #include "php_mbstring_enhanced.h"
 
-int bytefilter_utf8_indentify(unsigned char *str, int *status, int need_strip) {
+int bytefilter_utf8_indentify(unsigned char *str, int *status, int *flag_cjk_in_3byte, int need_strip) {
   int c1;
 
   int c = (int)(*str);
@@ -55,6 +55,9 @@ int bytefilter_utf8_indentify(unsigned char *str, int *status, int need_strip) {
   } else if (c < 0xc0) {
     switch ((*status)) {
     case 0x20: /* 3 byte code 2nd char */
+      if ( (*flag_cjk_in_3byte) == 1 ) {
+        (*str) = 0x20;
+      }
       if ((c1 == 0x0 && c >= 0xa0) || (c1 == 0xd && c < 0xa0) ||
           (c1 > 0x0 && c1 != 0xd)) {
         (*status)++;
@@ -93,6 +96,10 @@ int bytefilter_utf8_indentify(unsigned char *str, int *status, int need_strip) {
       break;
     case 0x21: /* 3 byte code 3rd char */
       (*status) = 0;
+      (*flag_cjk_in_3byte) = 0;
+      if ( (*flag_cjk_in_3byte) == 1 ) {
+        (*str) = 0x20;
+      }
       break;
     case 0x32: /* 4 byte code 4th char */
       if (!need_strip) {
@@ -133,6 +140,14 @@ int bytefilter_utf8_indentify(unsigned char *str, int *status, int need_strip) {
     } else if (c < 0xf0) { /* 3 byte code 1st char */
       (*status) = 0x20;
       (*status) |= (c & 0xf) << 8;
+      if (c < 0xe3 ) {  // CJK start at 0xe3 0x80 0x80 , unicode u+3000
+          if (!need_strip) {
+              return 1; /* bad */
+          } else {
+              (*flag_cjk_in_3byte) = 1;
+              (*str) = 0x20;
+          }
+      }
     } else if (c < 0xf5) { /* 4 byte code 1st char */
       (*status) = 0x30;
       (*status) |= (c & 0x7) << 8;
@@ -151,10 +166,11 @@ int bytefilter_utf8_indentify(unsigned char *str, int *status, int need_strip) {
 int identify_encoding(unsigned char *str, int len, int need_strip) {
   int flag = 0; // 0:yes, 1:no
   int status = 0;
+  int flag_cjk_in_3byte = 0;
 
   if (str != NULL) {
     while (len > 0) {
-      flag = bytefilter_utf8_indentify(str, &status, need_strip);
+      flag = bytefilter_utf8_indentify(str, &status, &flag_cjk_in_3byte, need_strip);
 #ifdef _MBE_DEBUG
       printf("byte[%02x] flag[%d]\n", *str, flag);
 #endif
