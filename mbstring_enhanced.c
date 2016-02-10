@@ -96,10 +96,10 @@ int bytefilter_utf8_indentify(unsigned char *str, int *status, int *flag_cjk_in_
       break;
     case 0x21: /* 3 byte code 3rd char */
       (*status) = 0;
-      (*flag_cjk_in_3byte) = 0;
       if ( (*flag_cjk_in_3byte) == 1 ) {
         (*str) = 0x20;
       }
+      (*flag_cjk_in_3byte) = 0;
       break;
     case 0x32: /* 4 byte code 4th char */
       if (!need_strip) {
