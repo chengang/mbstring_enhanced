@@ -1,7 +1,7 @@
 --TEST--
 Check for mbe_mbstring presence
 --SKIPIF--
-<?php if (!extension_loaded("mbe_mbstring")) print "skip"; ?>
+<?php if (!extension_loaded("mbstring_enhanced")) print "skip"; ?>
 --FILE--
 <?php 
 $is_utf8 = mbe_is_utf8cjk("ͷʹ");
