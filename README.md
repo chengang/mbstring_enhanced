@@ -83,8 +83,8 @@ How to use
 4. `make`
 5. `make test`
 6. `make install`
-7. Add the following lines to your php.ini:
-```php
+7. Add the following line to your php.ini:
+```
     extension=mbstring_enhanced.so
 ```
 
