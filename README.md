@@ -1,6 +1,8 @@
 mbstring_enhanced
 =================
 
+[![Build Status](https://travis-ci.org/chengang/mbstring_enhanced.svg?branch=master)](https://travis-ci.org/chengang/mbstring_enhanced)
+
 mbstring_enhanced is a PHP mbstring extension enhanced for CJK characters.
 
 Functions
