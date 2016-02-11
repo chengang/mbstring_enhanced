@@ -84,7 +84,9 @@ How to use
 5. `make test`
 6. `make install`
 7. Add the following lines to your php.ini:
+```php
     extension=mbstring_enhanced.so
+```
 
 mbstring_enhanced.so is installed to the default extension directory and you can call function `mbe_is_utf8cjk` and `mbe_strip_utf8_left_cjk` in your php code.
 
