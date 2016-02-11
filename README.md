@@ -57,18 +57,14 @@ Replace characters that is not ascii character or CJK character in the string wi
 ###### Parameters
 **str**   
 The UTF-8 string being striped.
-```
-    **Note:**
-    Input a string that is not encoding in UTF-8 may cause errors.
-```
+>    **Note:**
+>    Input a string that is not encoding in UTF-8 may cause errors.
 
 
 ###### Return Values
 Returns the stripped string that left ascii characters and CJK characters only.   
-```
-    Note:
-    The return string keeps the same `strlen` of the input string.
-```
+>    **Note:**
+>    The return string keeps the same `strlen` of the input string.
 
 ###### Examples
 * *Example #1 mbe_strip_utf8_left_cjk() example* *   
