@@ -25,7 +25,7 @@ Returns **TRUE** when the string being detected is in UTF-8 character encoding a
 Returns **FALSE** otherwise.
 
 ###### Examples
-* *Example #1 mbe_is_utf8cjk() example* *   
+*Example #1 mbe_is_utf8cjk() example*   
 
 ```php
     <?php
@@ -34,7 +34,7 @@ Returns **FALSE** otherwise.
     echo $encoding; // prints UTF8
 ```
 
-* *Example #2 mbe_is_utf8cjk() example with glyph* *   
+*Example #2 mbe_is_utf8cjk() example with glyph*   
 
 ```php
     <?php
@@ -67,7 +67,7 @@ Returns the stripped string that left ascii characters and CJK characters only.
 >    The return string keeps the same `strlen` of the input string.
 
 ###### Examples
-* *Example #1 mbe_strip_utf8_left_cjk() example* *   
+*Example #1 mbe_strip_utf8_left_cjk() example*   
 
 ```php
     <?php
