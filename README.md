@@ -40,7 +40,7 @@ Returns **FALSE** otherwise.
     <?php
     $is_utf8 = mbe_is_utf8cjk("i had a badly 头痛 yestoday night.€");
     $encoding = $is_utf8 ? "UTF8" : "GBK";
-    echo $encoding; // prints GBK, maybe not accurately described
+    echo $encoding; // prints GBK, maybe not accurately described but helps for asian
 ```
 
 #### mbe_strip_utf8_left_cjk   
