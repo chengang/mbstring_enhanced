@@ -18,8 +18,7 @@ Functions
 
 ###### Parameters
 **str**
->The string being detected.
-
+The string being detected.
 
 ###### Return Values
 Returns **TRUE** when the string being detected is in UTF-8 character encoding and contains ascii characters and CJK characters only.
@@ -58,7 +57,7 @@ Replace characters that is not ascii character or CJK character in the string wi
 
 ###### Parameters
 **str**
->The UTF-8 string being striped.
+The UTF-8 string being striped.
 ```
     **Note:**
     Input a string that is not encoding in UTF-8 may cause errors.
