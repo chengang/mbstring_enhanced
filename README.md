@@ -77,7 +77,7 @@ Returns the stripped string that left ascii characters and CJK characters only.
 
 How to use
 ----------
-1. install autoconf and php-devel.
+1. Install autoconf and php-devel.
 2. `cd mbstring_enhanced && phpize`
 3. `./configure`
 4. `make`
