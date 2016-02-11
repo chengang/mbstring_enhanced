@@ -6,7 +6,7 @@ mbstring_enhanced is a PHP mbstring extension enhanced for CJK characters.
 Functions
 ---------
 
-### mbe_is_utf8cjk   
+#### mbe_is_utf8cjk   
 (tested for PHP 5)   
 `mbe_is_utf8cjk` - Check if the string is valid CJK in UTF-8 character encoding
 
@@ -25,7 +25,7 @@ Returns **TRUE** when the string being detected is in UTF-8 character encoding a
 Returns **FALSE** otherwise.
 
 ###### Examples
-**Example #1 mbe_is_utf8cjk() example**   
+* *Example #1 mbe_is_utf8cjk() example* *   
 
 ```php
     <?php
@@ -34,7 +34,7 @@ Returns **FALSE** otherwise.
     echo $encoding; // prints UTF8
 ```
 
-**Example #2 mbe_is_utf8cjk() example with glyph**   
+* *Example #2 mbe_is_utf8cjk() example with glyph* *   
 
 ```php
     <?php
@@ -43,7 +43,7 @@ Returns **FALSE** otherwise.
     echo $encoding; // prints GBK, maybe not accurately described
 ```
 
-### mbe_strip_utf8_left_cjk   
+#### mbe_strip_utf8_left_cjk   
 (tested for PHP 5)   
 `mbe_strip_utf8_left_cjk` - Strip UTF-8 encoding characters that is not ascii character or CJK character from a string 
 
@@ -66,12 +66,12 @@ The UTF-8 string being striped.
 ###### Return Values
 Returns the stripped string that left ascii characters and CJK characters only.   
 ```
-    **Note:**
+    Note:
     The return string keeps the same `strlen` of the input string.
 ```
 
 ###### Examples
-**Example #1 mbe_strip_utf8_left_cjk() example**   
+* *Example #1 mbe_strip_utf8_left_cjk() example* *   
 
 ```php
     <?php
