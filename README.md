@@ -17,12 +17,11 @@ Functions
 ```
 
 ###### Parameters
-**str**
+**str**   
 The string being detected.
 
 ###### Return Values
-Returns **TRUE** when the string being detected is in UTF-8 character encoding and contains ascii characters and CJK characters only.
-
+Returns **TRUE** when the string being detected is in UTF-8 character encoding and contains ascii characters and CJK characters only.   
 Returns **FALSE** otherwise.
 
 ###### Examples
@@ -56,7 +55,7 @@ Returns **FALSE** otherwise.
 Replace characters that is not ascii character or CJK character in the string with blank.
 
 ###### Parameters
-**str**
+**str**   
 The UTF-8 string being striped.
 ```
     **Note:**
