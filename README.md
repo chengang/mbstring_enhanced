@@ -3,7 +3,7 @@ PHP extension: mbstring_enhanced
 
 [![Build Status](https://travis-ci.org/chengang/mbstring_enhanced.svg?branch=master)](https://travis-ci.org/chengang/mbstring_enhanced)
 
-点击 [中文文档](https://github.com/chengang/mbstring_enhanced/README-zh.md) 来查看中文文档   
+点击 [中文文档](https://github.com/chengang/mbstring_enhanced/blob/master/README-zh.md) 查看中文文档   
 
 mbstring_enhanced is a PHP mbstring extension enhanced for CJK (Chinese, Japanese, Korean) characters.
 
