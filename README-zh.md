@@ -3,7 +3,7 @@ PHP 扩展: mbstring_enhanced
 
 [![Build Status](https://travis-ci.org/chengang/mbstring_enhanced.svg?branch=master)](https://travis-ci.org/chengang/mbstring_enhanced)
 
-Click [README](https://github.com/chengang/mbstring_enhanced/README.md) for English.
+Click [README](https://github.com/chengang/mbstring_enhanced/blob/master/README.md) for English.
 
 这个是一个为中日韩语言增强的多字节字符处理PHP扩展库。
 
