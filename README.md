@@ -3,13 +3,13 @@ PHP extension: mbstring_enhanced
 
 [![Build Status](https://travis-ci.org/chengang/mbstring_enhanced.svg?branch=master)](https://travis-ci.org/chengang/mbstring_enhanced)
 
-[中文说明](https://github.com/chengang/mbstring_enhanced/README-zh.md)
+点击 [中文文档](https://github.com/chengang/mbstring_enhanced/README-zh.md) 来查看中文文档   
 
 mbstring_enhanced is a PHP mbstring extension enhanced for CJK (Chinese, Japanese, Korean) characters.
 
 Two problems we sloved
 ----------------------
-###### Better `mb_detect_encoding` for CJK    
+###### 1. Better `mb_detect_encoding` for CJK    
 Somtimes PHP does not detect character encoding, like below:
 
 ```php
@@ -22,12 +22,11 @@ Somtimes PHP does not detect character encoding, like below:
 ```
 
 That is not an error. That is because the binary form of the string we want to detect can be found both in UTF-8 and CP936 (aka GBK).   
-PHP code do its best.   
-But that really confuse.   
+PHP code do its best, but that really confuse.   
 There are some clues for CJK (Chinese, Japanese, Korean), we sloved the problem with the function `mbe_is_utf8cjk`.   
 
-###### Processing UTF-8 with GBK database
-Yes, GBK (CP936) is smaller, fatser and much more simple than UTF-8 for Chinese.   
+###### 2. Processing UTF-8 with GBK database
+Yes, GBK (aka CP936) is smaller, fatser and much more simple than UTF-8 for Chinese.   
 But people have problems when they have storages or databases encoding with GBK and then receive some characters encoding with UTF-8.   
 We hope the function `mbe_strip_utf8_left_cjk` can help.   
 
