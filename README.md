@@ -1,9 +1,35 @@
-mbstring_enhanced
-=================
+PHP extension: mbstring_enhanced
+================================
 
 [![Build Status](https://travis-ci.org/chengang/mbstring_enhanced.svg?branch=master)](https://travis-ci.org/chengang/mbstring_enhanced)
 
-mbstring_enhanced is a PHP mbstring extension enhanced for CJK characters.
+[中文说明](https://github.com/chengang/mbstring_enhanced/README-zh.md)
+
+mbstring_enhanced is a PHP mbstring extension enhanced for CJK (Chinese, Japanese, Korean) characters.
+
+Two problems we sloved
+----------------------
+###### Better `mb_detect_encoding` for CJK    
+Somtimes PHP does not detect character encoding, like below:
+
+```php
+    <?php
+    $str = "头痛";
+    echo mb_detect_encoding($str, "UTF-8, CP936", true); // prints UTF-8
+    echo "\n";
+    echo mb_detect_encoding($str, "CP936, UTF-8", true); // prints CP936
+    echo "\n";
+```
+
+That is not an error. That is because the binary form of the string we want to detect can be found both in UTF-8 and CP936 (aka GBK).   
+PHP code do its best.   
+But that really confuse.   
+There are some clues for CJK (Chinese, Japanese, Korean), we sloved the problem with the function `mbe_is_utf8cjk`.   
+
+###### Processing UTF-8 with GBK database
+Yes, GBK (CP936) is smaller, fatser and much more simple than UTF-8 for Chinese.   
+But people have problems when they have storages or databases encoding with GBK and then receive some characters encoding with UTF-8.   
+We hope the function `mbe_strip_utf8_left_cjk` can help.   
 
 Functions
 ---------
@@ -32,8 +58,8 @@ Returns **FALSE** otherwise.
 ```php
     <?php
     $is_utf8 = mbe_is_utf8cjk("i had a badly 头痛 yestoday night.");
-    $encoding = $is_utf8 ? "UTF8" : "GBK";
-    echo $encoding; // prints UTF8
+    $encoding = $is_utf8 ? "UTF-8" : "GBK";
+    echo $encoding; // prints UTF-8
 ```
 
 *Example #2 mbe_is_utf8cjk() example with glyph*   
@@ -41,7 +67,7 @@ Returns **FALSE** otherwise.
 ```php
     <?php
     $is_utf8 = mbe_is_utf8cjk("i had a badly 头痛 yestoday night.€");
-    $encoding = $is_utf8 ? "UTF8" : "GBK";
+    $encoding = $is_utf8 ? "UTF-8" : "GBK";
     echo $encoding; // prints GBK, maybe not accurately described but helps for asian
 ```
 
@@ -94,5 +120,5 @@ mbstring_enhanced.so is installed to the default extension directory and you can
 
 Bug Reports
 -----------
-Fill bug reports at 
+Please fill bug reports at 
 https://github.com/chengang/mbstring_enhanced/issues
