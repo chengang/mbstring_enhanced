@@ -7,8 +7,8 @@ PHP extension: mbstring_enhanced
 
 mbstring_enhanced is a PHP mbstring extension enhanced for CJK (Chinese, Japanese, Korean) characters.
 
-Two problems we sloved
-----------------------
+Two problems sloved
+-------------------
 ###### 1. Better `mb_detect_encoding` for CJK    
 Somtimes PHP does not detect character encoding, like below:
 
@@ -25,7 +25,7 @@ That is not an error. That is because the binary form of the string we want to d
 PHP code do its best, but that really confuse.   
 There are some clues for CJK (Chinese, Japanese, Korean), we sloved the problem with the function `mbe_is_utf8cjk`.   
 
-###### 2. Processing UTF-8 with GBK database
+###### 2. Process UTF-8 with GBK database
 Yes, GBK (aka CP936) is smaller, fatser and much more simple than UTF-8 for Chinese.   
 But people have problems when they have storages or databases encoding with GBK and then receive some characters encoding with UTF-8.   
 We hope the function `mbe_strip_utf8_left_cjk` can help.   
