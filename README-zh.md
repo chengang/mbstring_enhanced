@@ -35,7 +35,7 @@ PHP尽力了，它不能跨越标准去做事。但是在实际的应用开发�
 --------
 
 #### mbe_is_utf8cjk   
-(PHP 5.4, PHP 5.5, PHP 5.6测试通过)   
+*(PHP5.3, PHP 5.4, PHP 5.5, PHP 5.6测试通过)*   
 `mbe_is_utf8cjk` - 检查字符是不是UTF-8编码的ASCII或者中日韩字符
 
 ###### 说明
@@ -72,7 +72,7 @@ PHP尽力了，它不能跨越标准去做事。但是在实际的应用开发�
 ```
 
 #### mbe_strip_utf8_left_cjk   
-(PHP 5.4, PHP 5.5, PHP 5.6测试通过)   
+*(PHP5.3, PHP 5.4, PHP 5.5, PHP 5.6测试通过)*   
 `mbe_strip_utf8_left_cjk` - 从字符串中去掉非ASCII或中日韩的字符   
 
 ###### 说明   
