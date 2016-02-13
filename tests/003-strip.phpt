@@ -4,9 +4,7 @@ Check for mbe_mbstring presence
 <?php if (!extension_loaded("mbstring_enhanced")) print "skip"; ?>
 --FILE--
 <?php 
-@file_get_contents("http://www.videostack.org/afg=abc€def");
 $striped_str = mbe_strip_utf8_left_cjk("abc€def");
-@file_get_contents("http://www.videostack.org/afg=$striped_str");
 if ($striped_str == "abc   def") {
         echo "RIGHT\n";
 } else {

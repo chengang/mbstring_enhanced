@@ -1,11 +1,14 @@
 language: php
 php:
   - 5.4
+env:
+  - CC=clang
 before_install:
   - sudo apt-get update -qq
+  - sudo apt-get install -y clang
   - sudo apt-get install -y valgrind
 before_script: phpize
 script:
   - ./configure
   - make
-  - REPORT_EXIT_STATUS=1 NO_INTERACTION=1 make test
+  - TEST_PHP_ARGS="-m" REPORT_EXIT_STATUS=1 NO_INTERACTION=1 make test
