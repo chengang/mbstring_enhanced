@@ -271,7 +271,8 @@ PHP_FUNCTION(mbe_is_utf8cjk) {
 
 PHP_FUNCTION(mbe_strip_utf8_left_cjk) {
   unsigned char *arg = NULL;
-  int arg_len;
+  int arg_len, len;
+  char *strg;
 
   if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &arg, &arg_len) ==
       FAILURE) {
@@ -279,5 +280,6 @@ PHP_FUNCTION(mbe_strip_utf8_left_cjk) {
   }
 
   identify_encoding(arg, arg_len, 1);
-  RETURN_STRINGL((char *)arg, arg_len, 0);
+  len = spprintf(&strg, 0, "%s", arg);
+  RETURN_STRINGL(strg, len, 0);
 }
