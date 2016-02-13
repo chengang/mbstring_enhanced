@@ -61,7 +61,7 @@ Returns **FALSE** otherwise.
     echo $encoding; // prints UTF-8
 ```
 
-*Example #2 mbe_is_utf8cjk() a practical example for chinese encoding detect*   
+*Example #2 mbe_is_utf8cjk() a practical example for chinese encoding detecting*   
 
 ```php
     <?php
