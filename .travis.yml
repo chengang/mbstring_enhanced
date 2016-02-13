@@ -1,19 +1,22 @@
 language: php
 php:
+  - 5.2
+  - 5.3
   - 5.4
   - 5.5
   - 5.6
 env:
   - CC=clang 
   - CC=gcc 
+  - CC=cc 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -y clang
   - sudo apt-get install -y gcc
+  - sudo apt-get install -y clang
   - sudo apt-get install -y valgrind
 before_script: 
   - phpize
-  - $CC --version 1>&2
+  - $CC --version
 script:
   - ./configure
   - make
