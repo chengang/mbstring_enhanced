@@ -62,13 +62,20 @@ PHP尽力了，它不能跨越标准去做事。但是在实际的应用开发�
     echo $encoding; // 打印 UTF-8
 ```
 
-*Example #2 mbe_is_utf8cjk() 带欧元符号的范例*   
+*Example #2 mbe_is_utf8cjk() 用于中文检测的实用例子*   
 
 ```php
     <?php
-    $is_utf8 = mbe_is_utf8cjk("i had a badly 头痛 yestoday night.€");
-    $encoding = $is_utf8 ? "UTF-8" : "GBK";
-    echo $encoding; // 打印 GBK。这描述也许不准确，但有用。 
+    function mbe_utf_or_gbk ($str) {
+        $encoding1 = mb_detect_encoding($str, "UTF-8, CP936", true);
+        $encoding2 = mb_detect_encoding($str, "CP936, UTF-8", true); 
+        if ($encoding1 == $encoding2) {
+            return $encoding1;
+        }
+        return mbe_is_utf8cjk ($str) ? "UTF-8" : "GBK";
+    }
+    $encoding = mbe_utf_or_gbk("i had a badly 头痛 yestoday night.");
+    echo $encoding;
 ```
 
 #### mbe_strip_utf8_left_cjk   
