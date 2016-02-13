@@ -34,7 +34,7 @@ Functions
 ---------
 
 #### mbe_is_utf8cjk   
-(tested for PHP 5)   
+(tested for PHP 5.4, PHP 5.5, PHP 5.6)   
 `mbe_is_utf8cjk` - Check if the string is valid CJK in UTF-8 character encoding
 
 ###### Description
@@ -71,7 +71,7 @@ Returns **FALSE** otherwise.
 ```
 
 #### mbe_strip_utf8_left_cjk   
-(tested for PHP 5)   
+(tested for PHP 5.4, PHP 5.5, PHP 5.6)   
 `mbe_strip_utf8_left_cjk` - Strip UTF-8 encoding characters that is not ascii character or CJK character from a string 
 
 ###### Description

