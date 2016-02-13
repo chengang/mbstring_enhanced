@@ -66,7 +66,7 @@ PHP尽力了，它不能跨越标准去做事。但是在实际的应用开发�
 
 ```php
     <?php
-    function mbe_utf_or_gbk ($str) {
+    function mbe_detect_utf8_or_gbk ($str) {
         $encoding1 = mb_detect_encoding($str, "UTF-8, CP936", true);
         $encoding2 = mb_detect_encoding($str, "CP936, UTF-8", true); 
         if ($encoding1 == $encoding2) {
@@ -74,7 +74,7 @@ PHP尽力了，它不能跨越标准去做事。但是在实际的应用开发�
         }
         return mbe_is_utf8cjk ($str) ? "UTF-8" : "GBK";
     }
-    $encoding = mbe_utf_or_gbk("i had a badly 头痛 yestoday night.");
+    $encoding = mbe_detect_utf8_or_gbk("i had a badly 头痛 yestoday night.");
     echo $encoding;
 ```
 

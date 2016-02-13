@@ -61,13 +61,20 @@ Returns **FALSE** otherwise.
     echo $encoding; // prints UTF-8
 ```
 
-*Example #2 mbe_is_utf8cjk() example with glyph*   
+*Example #2 mbe_is_utf8cjk() a practical example for chinese encoding detect*   
 
 ```php
     <?php
-    $is_utf8 = mbe_is_utf8cjk("i had a badly 头痛 yestoday night.€");
-    $encoding = $is_utf8 ? "UTF-8" : "GBK";
-    echo $encoding; // prints GBK, maybe not accurately described but helps for asian
+    function mbe_detect_utf8_or_gbk ($str) {
+        $encoding1 = mb_detect_encoding($str, "UTF-8, CP936", true);
+        $encoding2 = mb_detect_encoding($str, "CP936, UTF-8", true);
+        if ($encoding1 == $encoding2) {
+            return $encoding1;
+        }
+        return mbe_is_utf8cjk ($str) ? "UTF-8" : "GBK";
+    }
+    $encoding = mbe_detect_utf8_or_gbk("i had a badly 头痛 yestoday night.");
+    echo $encoding;
 ```
 
 #### mbe_strip_utf8_left_cjk   
